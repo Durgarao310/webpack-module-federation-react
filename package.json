@@ -1,0 +1,22 @@
+{
+  "name": "webpack-mfa",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "app",
+    "ui"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm:start:app\" \"npm:start:ui\"",
+    "start:app": "npm start --workspace=app",
+    "start:ui": "npm start --workspace=ui"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.34",
+    "babel-plugin-styled-components": "^2.1.4",
+    "concurrently": "^9.2.0"
+  },
+  "dependencies": {
+    "styled-components": "^6.1.19"
+  }
+}
