@@ -1,5 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import { SelectProps, SelectComponent } from './types';
+import HelperText from '../HelperText';
 import { 
   SelectContainer,
   SelectLabel,
@@ -7,7 +8,6 @@ import {
   StyledSelect,
   StartIcon,
   DropdownIcon,
-  HelperText,
   SelectOption
 } from './style';
 
@@ -123,6 +123,8 @@ const Select: SelectComponent = forwardRef<HTMLSelectElement, SelectProps>(
             onChange={handleChange}
             onFocus={handleFocus}
             onBlur={handleBlur}
+            aria-describedby={displayHelperText ? `${selectId}-helper-text` : undefined}
+            aria-invalid={error}
             style={{
               paddingLeft: startIcon ? '40px' : undefined,
               paddingRight: '40px'
@@ -152,7 +154,11 @@ const Select: SelectComponent = forwardRef<HTMLSelectElement, SelectProps>(
         </SelectWrapper>
         
         {displayHelperText && (
-          <HelperText error={error}>
+          <HelperText 
+            hasError={error}
+            id={`${selectId}-helper-text`}
+            size="small"
+          >
             {displayHelperText}
           </HelperText>
         )}

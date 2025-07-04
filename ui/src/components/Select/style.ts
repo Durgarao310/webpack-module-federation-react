@@ -193,15 +193,6 @@ export const DropdownIcon = styled.div<{ theme: any; size?: "small" | "medium" |
   }
 `;
 
-export const HelperText = styled.div<{ theme: any; error?: boolean }>`
-  font-family: ${({ theme }) => theme.typography.caption.fontFamily};
-  font-size: ${({ theme }) => theme.typography.caption.fontSize};
-  line-height: ${({ theme }) => theme.typography.caption.lineHeight};
-  color: ${({ theme, error }) => error ? theme.colors.error : theme.colors.onSurface.mediumEmphasis};
-  margin-top: ${({ theme }) => theme.spacing.xs};
-  min-height: ${({ theme }) => theme.typography.caption.lineHeight};
-`;
-
 export const SelectOption = styled.option<{ theme: any }>`
   background-color: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.onSurface.highEmphasis};

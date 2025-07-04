@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "./globalStyles";
 
-const RemoteApp = React.lazy(() => import("ui/App"));
 const Button = React.lazy(() => import("ui/Button"));
 const Input = React.lazy(() => import("ui/Input"));
 const Label = React.lazy(() => import("ui/Label"));
@@ -26,7 +25,6 @@ const App = () => {
         <GlobalStyle />
         <StyledAppContainer>
           <ThemeToggleButton />
-          <RemoteApp />
           <Button
             isDisabled={false}
             isLoading={true}
@@ -43,17 +41,7 @@ const App = () => {
             onChange={(checked: boolean) => setIsChecked(checked)}
             size="medium"
           />
-          <Checkbox
-            label="Indeterminate"
-            indeterminate={true}
-            size="medium"
-          />
-          <Checkbox
-            label="Disabled"
-            checked={true}
-            disabled={true}
-            size="medium"
-          />
+       
           <Label
             htmlFor="input1"
             isError={false}
