@@ -28,4 +28,9 @@ export interface LabelProps {
    * This will apply M3 disabled color to the label text.
    */
   isDisabled?: boolean;
+   /**
+   * Defines the size of the label typography.
+   * Defaults to 'small' if not provided.
+   */
+   size?: 'small' | 'medium' | 'large'; // Added size prop
 }

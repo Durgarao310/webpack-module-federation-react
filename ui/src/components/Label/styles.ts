@@ -4,17 +4,28 @@ import styled, { css } from 'styled-components';
 export const StyledLabel = styled.label<{
   $isError?: boolean;
   $isDisabled?: boolean;
+  $size?: 'small' | 'medium' | 'large';
 }>`
   display: inline-flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.small}; /* Example: theme.spacing.small from your M3 theme */
 
-  /* Material Design 3 Body Small typography */
-  font-family: ${({ theme }) => theme.typography.label.small.fontFamily};
-  font-size: ${({ theme }) => theme.typography.label.small.fontSize};
-  font-weight: ${({ theme }) => theme.typography.label.small.fontWeight};
-  line-height: ${({ theme }) => theme.typography.label.small.lineHeight};
-  letter-spacing: ${({ theme }) => theme.typography.label.small.letterSpacing};
+  /* --- REFINED TYPOGRAPHY APPLICATION --- */
+  ${({ theme, $size }) => {
+    // Determine which typography tokens to use based on the size prop
+    // Default to 'small' if $size is not explicitly provided or is undefined
+    const typographyTokens = theme.typography.label[$size || 'small'];
+
+    return css`
+      font-family: ${typographyTokens.fontFamily};
+      font-size: ${typographyTokens.fontSize};
+      font-weight: ${typographyTokens.fontWeight};
+      line-height: ${typographyTokens.lineHeight};
+      letter-spacing: ${typographyTokens.letterSpacing};
+    `;
+  }}
+  /* --- END REFINED TYPOGRAPHY APPLICATION --- */
+
 
   color: ${({ theme }) => theme.colors.onSurfaceVariant}; /* Default M3 label color */
 

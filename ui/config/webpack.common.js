@@ -48,6 +48,7 @@ module.exports = {
         './Input': './src/components/Input',
         './Label': './src/components/Label',
         './ThemeProvider': './src/components/ThemeProvider',
+        './ThemeToggleButton': './src/components/ThemeToggleButton',
       },
       remotes: {
         app: 'app@http://localhost:3001/remoteEntry.js',

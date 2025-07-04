@@ -6,6 +6,9 @@ const devConfig = {
   devServer: {
     port: 3002,
     historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
 };
 

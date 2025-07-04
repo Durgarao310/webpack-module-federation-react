@@ -1,1 +1,1 @@
-export { ThemeProviderWrapper as default } from '../../theme/provider';
+export { ThemeProviderWrapper as default, useThemeMode } from '../../theme/provider';

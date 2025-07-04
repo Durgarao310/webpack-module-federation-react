@@ -4,18 +4,20 @@ import { LabelProps } from './types';
 import { StyledLabel } from './styles';
 
 const Label: React.FC<LabelProps> = ({
-  children, // Changed from 'text' to 'children' for more flexibility
+  children,
   startingIcon,
   endIcon,
   htmlFor,
   isError = false,
   isDisabled = false,
+  size = 'medium', // Default size to 'medium'
 }) => {
   return (
     <StyledLabel
       htmlFor={htmlFor}
       $isError={isError}
       $isDisabled={isDisabled}
+      $size={size} // Pass the size prop
     >
       {startingIcon && <span className="label-icon">{startingIcon}</span>}
       {children}
