@@ -47,6 +47,7 @@ module.exports = {
         './Button': './src/components/Button',
         './Input': './src/components/Input',
         './Label': './src/components/Label',
+        './Checkbox': './src/components/Checkbox',
         './ThemeProvider': './src/components/ThemeProvider',
         './ThemeToggleButton': './src/components/ThemeToggleButton',
       },

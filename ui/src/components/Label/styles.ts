@@ -8,7 +8,7 @@ export const StyledLabel = styled.label<{
 }>`
   display: inline-flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.small}; /* Example: theme.spacing.small from your M3 theme */
+  gap: ${({ theme }) => theme.spacing.sm}; /* Example: theme.spacing.small from your M3 theme */
 
   /* --- REFINED TYPOGRAPHY APPLICATION --- */
   ${({ theme, $size }) => {

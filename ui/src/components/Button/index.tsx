@@ -1,30 +1,80 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { forwardRef } from 'react';
+import { ButtonProps, ButtonComponent } from './types';
+import { 
+  StyledButton, 
+  ButtonIcon, 
+  LoadingSpinner, 
+  ButtonContent, 
+  LoadingWrapper 
+} from './style';
 
-const Button = styled.button`
-  background-color: #007bff;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
+const Button: ButtonComponent = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      startIcon,
+      endIcon,
+      isDisabled = false,
+      size = 'medium',
+      isLoading = false,
+      isFullWidth = false,
+      type = 'button',
+      variant = 'filled',
+      color = 'primary',
+      onClick,
+      className,
+      ...rest
+    },
+    ref
+  ) => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (isDisabled || isLoading) {
+        event.preventDefault();
+        return;
+      }
+      onClick?.(event);
+    };
 
-  &:hover {
-    background-color: #0056b3;
+    return (
+      <StyledButton
+        ref={ref}
+        type={type}
+        disabled={isDisabled || isLoading}
+        onClick={handleClick}
+        className={className}
+        size={size}
+        variant={variant}
+        color={color}
+        isFullWidth={isFullWidth}
+        isLoading={isLoading}
+        {...rest}
+      >
+        {isLoading && (
+          <LoadingWrapper>
+            <LoadingSpinner />
+          </LoadingWrapper>
+        )}
+        
+        <ButtonContent isLoading={isLoading}>
+          {startIcon && (
+            <ButtonIcon position="start">
+              {startIcon}
+            </ButtonIcon>
+          )}
+          
+          {children}
+          
+          {endIcon && (
+            <ButtonIcon position="end">
+              {endIcon}
+            </ButtonIcon>
+          )}
+        </ButtonContent>
+      </StyledButton>
+    );
   }
-`;
+);
 
-const ButtonText = styled.span`
-  font-size: 16px;
-`;
+Button.displayName = 'Button';
 
-const Index = () => {
-  return (
-    <Button>
-      <ButtonText>Click Me</ButtonText>
-    </Button>
-  );
-};
-
-export default Index;
+export default Button;

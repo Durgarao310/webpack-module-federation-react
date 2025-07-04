@@ -1,11 +1,7 @@
 
 import 'styled-components';
+import { AppTheme } from './theme/types';
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    body: string;
-    text: string;
-    toggleBorder: string;
-    background: string;
-  }
+  export interface DefaultTheme extends AppTheme {}
 }

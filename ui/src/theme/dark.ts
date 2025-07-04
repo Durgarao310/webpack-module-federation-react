@@ -1,5 +1,6 @@
 // src/theme/dark.ts
 import { AppTheme } from './types';
+
 // Example helper
 const withOpacity = (hex: string, opacity: number) => {
   const alpha = Math.round(opacity * 255).toString(16).padStart(2, '0');
@@ -7,25 +8,87 @@ const withOpacity = (hex: string, opacity: number) => {
 };
 
 export const darkTheme: AppTheme = {
-  colors: {
-    primary: '#6200EE',
-    background: '#121212',
-    surface: '#1E1E1E',
-    error: '#CF6679',
-    onSurface: {
-      withOpacity: (opacity: number) => withOpacity('#FFFFFF', opacity),
-    },
-    onSurfaceVariant: '#E8E8E8',
-  },
+  mode: 'dark',
+  name: 'dark',
   body: '#121212',
   text: '#FFFFFF',
   toggleBorder: '#6B8096',
   background: '#121212',
-  spacing: {
-    small: '8px',
-    medium: '16px',
+  borderColor: '#333333',
+  
+  colors: {
+    primary: '#BB86FC',
+    secondary: '#03DAC6',
+    background: '#121212',
+    surface: '#1E1E1E',
+    error: '#CF6679',
+    success: '#4CAF50',
+    warning: '#FFC107',
+    onPrimary: '#000000',
+    onSurface: {
+      withOpacity: (opacity: number) => withOpacity('#FFFFFF', opacity),
+      highEmphasis: '#FFFFFF',
+      mediumEmphasis: 'rgba(255, 255, 255, 0.87)',
+      disabled: 'rgba(255, 255, 255, 0.38)',
+    },
+    onSurfaceVariant: '#E8E8E8',
+    divider: 'rgba(255, 255, 255, 0.12)',
   },
+  spacing: {
+    none: '0px',
+    xs: '4px',
+    sm: '8px',
+    md: '16px',
+    lg: '24px',
+    xl: '32px',
+    '2xl': '48px',
+  },
+
   typography: {
+    fontFamily: 'Roboto, sans-serif',
+    h1: {
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '32px',
+      fontWeight: 700,
+      lineHeight: '40px',
+      letterSpacing: '-0.01562em',
+    },
+    h2: {
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '24px',
+      fontWeight: 600,
+      lineHeight: '32px',
+      letterSpacing: '-0.00833em',
+    },
+    h3: {
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '20px',
+      fontWeight: 600,
+      lineHeight: '28px',
+      letterSpacing: '0em',
+    },
+    body1: {
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '16px',
+      fontWeight: 400,
+      lineHeight: '24px',
+      letterSpacing: '0.00938em',
+    },
+    body2: {
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '14px',
+      fontWeight: 400,
+      lineHeight: '20px',
+      letterSpacing: '0.01071em',
+    },
+    button: {
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '14px',
+      fontWeight: 500,
+      lineHeight: '20px',
+      letterSpacing: '0.02857em',
+      textTransform: 'uppercase',
+    },
     label: {
       small: {
         fontFamily: 'Roboto, sans-serif',
@@ -49,5 +112,39 @@ export const darkTheme: AppTheme = {
         letterSpacing: '0.15px',
       },
     },
+    caption: {
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '12px',
+      fontWeight: 400,
+      lineHeight: '16px',
+      letterSpacing: '0.03333em',
+    },
+  },
+
+  breakpoints: {
+    xs: '0px',
+    sm: '600px',
+    md: '960px',
+    lg: '1280px',
+    xl: '1920px',
+  },
+
+  componentSizes: {
+    inputHeight: {
+      small: '32px',
+      medium: '40px',
+      large: '48px',
+    },
+    buttonHeight: {
+      small: '32px',
+      medium: '40px',
+      large: '48px',
+    },
+    borderRadius: '8px',
+  },
+
+  transitions: {
+    duration: '0.2s',
+    easing: 'ease-in-out',
   },
 };

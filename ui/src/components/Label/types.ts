@@ -1,6 +1,5 @@
 // src/components/FormComponents/Label/Label.types.ts
 import React from 'react';
-
 export interface LabelProps {
   /**
    * The text content of the label.
